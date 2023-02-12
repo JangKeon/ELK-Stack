@@ -1,0 +1,20 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /logs/host/nginx/*.log
+      - /logs/host/spring/*.log
+      - /logs/host/spring2/*.log
+      - /logs/host/mongodb/.mongodb/mongosh/_log
+      - /logs/host/mongodb2/.mongodb/mongosh/_log
+      - /logs/host/mongodb3/.mongodb/mongosh/_log
+#  multiline.pattern:
+
+# output
+# output.elasticsearch:
+output.logstash:
+  hosts: ["172.16.81.167:5044"]
+
+# for kibana dashboard
+setup.kibana:
+  host: "172.16.81.167:5601"
